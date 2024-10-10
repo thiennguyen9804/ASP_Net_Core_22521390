@@ -1,0 +1,48 @@
+﻿@model IEnumerable<NETMVC.Models.ProductModel>
+
+<h1>Danh sách sản phẩm</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Catalog ID</th>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Ảnh</th>
+            <th>Giá</th>
+            <th>Chi tiết</th> <!-- Thay bằng các thuộc tính của ProductModel -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => product.CatalogId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => product.ProductCode)
+                </td> 
+                <td>
+                    @Html.DisplayFor(modelItem => product.ProductName)
+                </td> 
+                <td>
+                    @Html.DisplayFor(modelItem => product.Picture)
+                    <img src="~/images/PRO01.jpg"
+                    alt="Image"
+                    width="100"
+                    height="100"/>
+                </td> 
+                <td>
+                    @Html.DisplayFor(modelItem => product.UnitPrice)
+                </td> 
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {id = product.Id}) |
+                    @Html.ActionLink("Detail", "Detail", new {id = product.Id}) |
+                    @Html.ActionLink("Delete", "Delete", new {id = product.Id})
+                </td>  
+
+            </tr>
+        }
+    </tbody>
+</table>

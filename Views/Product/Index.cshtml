@@ -1,0 +1,20 @@
+@model List<NETMVC.Models.ProductModel>
+<h1>Danh sách sản phẩm Product</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên sản phẩm</th> <!-- Thay bằng các thuộc tính của ProductModel -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td> <!-- Thay Id bằng tên thuộc tính thực tế -->
+                <td>@product.ProductName</td> <!-- Thay Name bằng tên thuộc tính thực tế -->
+            </tr>
+        }
+    </tbody>
+</table>
